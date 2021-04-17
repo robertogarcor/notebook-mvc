@@ -1,0 +1,4 @@
+# Notebook MVC file and directory exclude
+######################
+
+nbproject/*
