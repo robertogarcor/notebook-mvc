@@ -1,0 +1,18 @@
+/* 
+    Created on : 6 sept. 2019, 21:25:50
+    Author     : Roberto
+*/
+
+.login {
+    margin:40px;
+    width: 250px;
+} 
+.error {
+    margin:40px;
+    color: red;
+}
+.logout {
+    margin:40px;
+    color: blue;
+}
+

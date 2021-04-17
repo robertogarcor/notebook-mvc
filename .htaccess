@@ -1,0 +1,30 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+    RewriteEngine On
+    #RewriteBase /
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^(.*)$ index.php?PATH_INFO=$1 [L,QSA]
+
+    # if RewriteBase == /notebook-mvc/ this
+    #Rewriterule ^([a-zA-Z]+)$ index.php?controller=$1&action=index [L,QSA]
+    #Rewriterule ^([a-zA-Z]+)/([a-zA-Z]+)$ index.php?controller=$1&action=$2 [L,QSA]
+    #Rewriterule ^([a-zA-Z]+)/([0-9]+)/([a-zA-Z]+)$ index.php?controller=$1&action=$3&id=$2 [L,QSA]
+
+    # if RewriteBase == / this
+    #Rewriterule ^([a-zA-Z]+)$ notebook-mvc/index.php?controller=$1&action=index [L,QSA]
+    #Rewriterule ^([a-zA-Z]+)/([a-zA-Z]+)$ notebook-mvc/index.php?controller=$1&action=$2 [L,QSA]
+    #Rewriterule ^([a-zA-Z]+)/([0-9]+)/([a-zA-Z]+)$ notebook-mvc/index.php?controller=$1&action=$3&id=$2 [L,QSA]
+  
+</IfModule>
+
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+Options All -Indexes
