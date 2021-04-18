@@ -19,7 +19,7 @@
             <form action="<?php echo $url->uri('task', 'store'); ?>" method="POST">
                 <div class="form-group">
                     <label for="name">Name Task</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter name task">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter name task" required>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" name="completed" class="form-check-input" id="completed">

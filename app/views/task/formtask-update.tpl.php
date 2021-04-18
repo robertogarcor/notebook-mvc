@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Name Task</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Enter name task" value="<?php echo $taskObj->name;?>">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Enter name task" value="<?php echo $taskObj->name;?>" required>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" name="completed" class="form-check-input" id="completed" <?php $taskObj->completed === "1" ? print "checked=checked>" : print ">"; ?>

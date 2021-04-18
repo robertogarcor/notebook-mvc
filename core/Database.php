@@ -8,7 +8,6 @@ namespace Core;
  * @author Roberto
  */
 
-//require_once './app/config.php';
 use PDO;
 
 

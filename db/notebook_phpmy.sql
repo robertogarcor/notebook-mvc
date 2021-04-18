@@ -33,8 +33,8 @@ USE `notebook`;
 CREATE TABLE `tasks` (
   `id` int(11) NOT NULL,
   `name` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
-  `completed` tinyint(1) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `completed` tinyint(1) DEFAULT 0,
+  `user_id` int(11) DEFAULT NOT NULL,
   `createat` datetime DEFAULT current_timestamp(),
   `updateat` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
