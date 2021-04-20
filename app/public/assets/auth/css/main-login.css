@@ -4,21 +4,21 @@
 */
 
 .login {
-    margin-left:40px;
-    width: 250px;
+    margin:40px;
+    width:250px;
 } 
 .error {
-    margin:40px;
-    color: red;
+    margin:20px 40px;
+    width:350px;
 }
 .logout {
-    margin:40px;
-    color: blue;
+    margin:20px 40px;
+    width:350px;
 }
 
 .success {
     margin:20px 40px 20px 40px;
-    width:300px;
+    width:350px;
 }
 
 p.signup {

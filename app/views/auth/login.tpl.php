@@ -13,10 +13,10 @@
         <?php
 
             if (isset($error)) { 
-                echo '<p class="error">Username or password invalid. Please in again!.</p>';
+                echo '<p class="error alert alert-danger role="alert">' . $error . '</p>';
             }
             if (isset($logout)){
-                echo '<p class="logout">Session Closed OK!.</p>';
+                echo '<p class="logout alert alert-info role="alert">' . $logout . '</p>';
             }
             if (isset($success)){
                  echo '<p class="success alert alert-success role="alert">' . $success . '</p>';

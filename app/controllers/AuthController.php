@@ -33,7 +33,7 @@ class AuthController extends Controller {
                 $this->redirect('task', 'index');
                 //Url::redirect('task', 'index');
             } else {
-                View::make('auth', 'login')->with('error', 'error')->execute();      
+                View::make('auth', 'login')->with('error', 'Username or password invalid. Please in again!.')->execute();      
             }   
         } else {
             View::make('auth', 'login')->execute();   
@@ -48,7 +48,7 @@ class AuthController extends Controller {
             exit();
         } 
         Auth::logout();
-        View::make('auth', 'login')->with('logout', 'logout')->execute();        
+        View::make('auth', 'login')->with('logout', 'Session closed success!.')->execute();        
     }
     
     public function register() 
@@ -63,9 +63,9 @@ class AuthController extends Controller {
           //var_dump($user);
           $result = User::save($user);
           if ($result == 1) {
-              View::make('auth', 'login')->with('success', 'Register User OK!')->execute();
+              View::make('auth', 'login')->with('success', 'Register user success!.')->execute();
           } else {
-              View::make('auth', 'register')->with('error', 'A ocurred an error to register User!')->execute();
+              View::make('auth', 'register')->with('error', 'A ocurred an error to register user!')->execute();
           }
         } else {
             View::make('auth', 'login')->execute(); 
