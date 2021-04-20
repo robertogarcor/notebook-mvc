@@ -17,8 +17,6 @@ class Controller {
     // Example in ModelController -> ['index', 'store', 'update',]
     static $require_auth = [];
     
-    protected $request;
- 
     public function __construct() 
     {
         // Authentication method --> Model Controller var $require_auth

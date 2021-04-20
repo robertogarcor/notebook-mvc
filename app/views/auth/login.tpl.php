@@ -18,6 +18,9 @@
             if (isset($logout)){
                 echo '<p class="logout">Session Closed OK!.</p>';
             }
+            if (isset($success)){
+                 echo '<p class="success alert alert-success role="alert">' . $success . '</p>';
+            }    
         ?>
         <div class="login">
             <h1>Login</h1>
@@ -32,6 +35,7 @@
                 </div>
                 <input type="submit" name="login" value="Send" class="btn btn-primary">
             </form>
+            <p class="signup">Not registered account. <a href="<?php echo $url->uri('auth','register');?>">Sign up</a></p>
         </div>
     </body>
 </html>

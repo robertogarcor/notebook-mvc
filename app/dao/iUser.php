@@ -9,5 +9,8 @@ namespace App\Dao;
 interface iUser {
     
     public static function getUser($username, $password);
+    
+    public static function save($user);
+    
 }
 

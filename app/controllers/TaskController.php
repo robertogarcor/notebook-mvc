@@ -21,7 +21,7 @@ class TaskController extends Controller {
 
     public function __construct()
     {
-        parent::$require_auth = ['index', 'create', 'store', 'edit', 'update', 'destroy', 'download'];
+        parent::$require_auth = ['index', 'store', 'edit', 'update', 'destroy', 'download'];
         parent::__construct();
         $this->task = new Task();
     }

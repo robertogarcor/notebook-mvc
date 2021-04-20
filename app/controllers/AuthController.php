@@ -51,4 +51,27 @@ class AuthController extends Controller {
         View::make('auth', 'login')->with('logout', 'logout')->execute();        
     }
     
+    public function register() 
+    {
+        View::make('auth', 'register')->execute();
+    }
+    
+    public function store() 
+    {
+        if(isset($_POST['user-register'])){
+          $user = (object)$_POST;
+          //var_dump($user);
+          $result = User::save($user);
+          if ($result == 1) {
+              View::make('auth', 'login')->with('success', 'Register User OK!')->execute();
+          } else {
+              View::make('auth', 'register')->with('error', 'A ocurred an error to register User!')->execute();
+          }
+        } else {
+            View::make('auth', 'login')->execute(); 
+        }
+        
+        
+    }
+    
 }

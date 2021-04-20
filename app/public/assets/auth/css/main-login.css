@@ -4,7 +4,7 @@
 */
 
 .login {
-    margin:40px;
+    margin-left:40px;
     width: 250px;
 } 
 .error {
@@ -14,5 +14,14 @@
 .logout {
     margin:40px;
     color: blue;
+}
+
+.success {
+    margin:20px 40px 20px 40px;
+    width:300px;
+}
+
+p.signup {
+    margin-top:15px !important;
 }
 

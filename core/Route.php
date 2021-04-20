@@ -25,7 +25,7 @@ class Route {
                 case 'TaskController':
                     $controller = new TaskController();
                     break;
-            } 
+            }
             return $controller;
         }
         die('404');

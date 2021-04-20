@@ -41,4 +41,38 @@ class UserDAO implements iUser {
         
     }
 
+    public static function save($user) {
+        
+        $sql = 'INSERT INTO users (username, password, firstname, surname, email) VALUES (:username,:password,:firstname,:surname,:email)';
+        
+        try {
+            
+            $pdo = Database::getInstance()->getDb(); /* @var $pdo \PDO */
+            
+            $stmt = $pdo->prepare($sql);
+            
+            $pdo->beginTransaction();
+            
+            $stmt->bindParam(':username', $user->username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $user->password, PDO::PARAM_STR);
+            $stmt->bindParam(':firstname', $user->firstname, PDO::PARAM_STR);
+            $stmt->bindParam(':surname', $user->surname, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $user->email, PDO::PARAM_STR);
+            
+            $result = $stmt->execute();
+
+            $pdo->commit();
+            
+            // return true(1) or fail(0) insert user
+            return $result;
+            
+        } catch (PDOException $ex) {
+            $ex->getMessage();
+        } finally {
+            Database::closeDb();
+        }
+        
+    }
+
 }
+
