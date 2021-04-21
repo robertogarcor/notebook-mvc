@@ -33,16 +33,16 @@ class Controller {
     
     
     
-    public function redirect($controller, $action) 
+    public function redirect($controller, $action, $attrs = null) 
     {
-        header('Location:http://localhost/notebook-mvc/index.php?controller='. $controller . '&action=' . $action);   
+        if($attrs != null) {
+            header('Location:http://localhost/notebook-mvc/index.php?controller='. $controller . '&action=' . $action . '&' . http_build_query($attrs));
+        } else {
+            header('Location:http://localhost/notebook-mvc/index.php?controller='. $controller . '&action=' . $action);
+        }
+        exit();
     }
-    
-    private function getAction($controller, $action) 
-    { 
-        $controller->$action();
-    }
-  
+       
 }
 
 

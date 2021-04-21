@@ -21,7 +21,7 @@ class TaskController extends Controller {
 
     public function __construct()
     {
-        parent::$require_auth = ['index', 'store', 'edit', 'update', 'destroy', 'download'];
+        parent::$require_auth = ['index', 'create', 'store', 'edit', 'update', 'destroy', 'download'];
         parent::__construct();
         $this->task = new Task();
     }
@@ -48,7 +48,8 @@ class TaskController extends Controller {
             $this->task->setCompleted((empty($_POST['completed'])) ? 0 : 1);
             $this->task->setUser(Auth::user()->id);
             $this->task->save($this->task);
-            $this->redirect('task', 'index');   
+            $attrs = array ('success' => 'Create task success!.');                
+            $this->redirect('task', 'index', $attrs);     
         } 
        
     }
@@ -72,7 +73,8 @@ class TaskController extends Controller {
             $this->task->setCompleted((empty($_POST['completed'])) ? 0 : 1);
             $this->task->setId($_POST['id']);
             $this->task->update($this->task);
-            $this->redirect('task', 'index');    
+            $attrs = array ('success' => 'Update task success!.');                
+            $this->redirect('task', 'index', $attrs);       
         }
     }
     
@@ -87,7 +89,8 @@ class TaskController extends Controller {
         else if (Auth::check() && isset($_POST['deltask'])){ 
             $this->task->setId($_POST['id']);
             $this->task->delete($this->task);
-            $this->redirect('task', 'index');
+            $attrs = array ('success' => 'Delete task success!.');                
+            $this->redirect('task', 'index', $attrs);       
         }
     }
     

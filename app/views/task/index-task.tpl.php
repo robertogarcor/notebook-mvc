@@ -11,6 +11,11 @@
         <link href="<?php echo $url->assets('task','main-task-index.css');?>" rel="stylesheet" type="text/css" />   
     </head>
     <body>
+        <?php
+            if(isset($_GET['success'])) {
+                echo '<p class="success alert alert-success role="alert">' . $_GET['success'] . '</p>';
+            }
+        ?>
         <div class='sumary-tasks'>
             <p><a href="<?php echo $url->uri('task','index'); ?>">Home</a> | Welcome! user <?php echo $userObj->username;?> | <a href="<?php echo $url->uri('auth','logout'); ?>"> Logout </a></p>
             <h1>Sumary Tasks</h1>
