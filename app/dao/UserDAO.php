@@ -16,29 +16,29 @@ use PDO;
 class UserDAO implements iUser {
     
     
-    static function getUser($username, $password) {
+    static function getUser($username) {
         
-        $sql = 'SELECT * FROM users WHERE username=? AND password=?';
+        $sql = 'SELECT * FROM users WHERE username=?';
 
         try {
             // Get connection and prepareStament and execute from SQL query
-            $prst = Database::getInstance()->getDb()->prepare($sql); /* @var $prst PDOStatement */
+            $pdo = Database::getInstance()->getDb(); /* @var $pdo \PDO */
+        
+            $stmt = $pdo->prepare($sql);
 
-            $prst->bindParam(1, $username, PDO::PARAM_STR);
-            $prst->bindParam(2, $password, PDO::PARAM_STR);
-            
+            $stmt->bindParam(1, $username, PDO::PARAM_STR);
+
             // Execute sent
-            $prst->execute();
+            $stmt->execute();
             
             // Return the rows
-            return $prst->fetch(PDO::FETCH_OBJ);
+            return $stmt->fetch(PDO::FETCH_OBJ);
 
         } catch (PDOException $ex) {
             $ex->getMessage();
         } finally {
             Database::closeDb();
-        }
-        
+        }  
     }
 
     public static function save($user) {

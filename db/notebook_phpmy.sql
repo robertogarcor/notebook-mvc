@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-08-2019 a las 09:16:45
+-- Tiempo de generación: 22-04-2021 a las 14:46:58
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -34,9 +34,9 @@ CREATE TABLE `tasks` (
   `id` int(11) NOT NULL,
   `name` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
   `completed` tinyint(1) DEFAULT 0,
-  `user_id` int(11) DEFAULT NOT NULL,
+  `user_id` int(11) NOT NULL,
   `createat` datetime DEFAULT current_timestamp(),
-  `updateat` datetime DEFAULT NULL ON UPDATE current_timestamp()
+  `updateat` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -44,14 +44,14 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `name`, `completed`, `user_id`, `createat`, `updateat`) VALUES
-(1, 'Pintar a casa', 0, 1, '2019-08-30 09:16:22', NULL),
-(2, 'Anar a comprar', 1, 1, '2019-08-30 09:16:22', NULL),
-(3, 'Fer la feina de casa', 1, 2, '2019-08-30 09:16:22', NULL),
-(4, 'Trucar a Mark', 0, 1, '2019-08-30 09:16:22', NULL),
-(5, 'task 5', 1, 2, '2019-08-30 09:16:22', NULL),
-(6, 'task 6', 0, 2, '2019-08-30 09:16:22', NULL),
-(7, 'task 7', 1, 2, '2019-08-30 09:16:22', NULL),
-(8, 'task 8', 0, 1, '2019-08-30 09:16:22', NULL);
+(1, 'Pintar a casa', 0, 1, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(2, 'Anar a comprar', 1, 1, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(3, 'Fer la feina de casa', 1, 2, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(4, 'Trucar a Mark', 0, 1, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(5, 'task 5', 1, 2, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(6, 'task 6', 0, 2, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(7, 'task 7', 1, 2, '2021-04-22 14:46:14', '2021-04-22 14:46:14'),
+(8, 'task 8', 0, 1, '2021-04-22 14:46:14', '2021-04-22 14:46:14');
 
 -- --------------------------------------------------------
 
@@ -62,21 +62,22 @@ INSERT INTO `tasks` (`id`, `name`, `completed`, `user_id`, `createat`, `updateat
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `firstname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `surname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `createat` datetime DEFAULT current_timestamp(),
-  `updateat` datetime DEFAULT NULL ON UPDATE current_timestamp()
+  `updateat` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
+-- Encryted password 1234 -> hash 
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `firstname`, `surname`, `createat`, `updateat`) VALUES
-(1, 'roberto', '1234', 'roberto@email.com', NULL, NULL, '2019-08-30 09:16:22', NULL),
-(2, 'user2', '1234', 'user2@email.com', NULL, NULL, '2019-08-30 09:16:22', NULL);
+(1, 'roberto', '$2y$12$uK6hAgnezcuKrvjOiEQM4ORV1F5CU7F4T5ORzgmScoYv0aj/um1Kq', 'roberto@email.com', 'Roberto', 'Garcia', '2021-04-22 14:46:13', '2021-04-22 14:46:13'),
+(2, 'user2', '$2y$12$uK6hAgnezcuKrvjOiEQM4ORV1F5CU7F4T5ORzgmScoYv0aj/um1Kq', 'user2@email.com', 'User2', 'User2', '2021-04-22 14:46:13', '2021-04-22 14:46:13');
 
 --
 -- Índices para tablas volcadas

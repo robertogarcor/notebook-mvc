@@ -5,17 +5,21 @@ USE notebook;
 CREATE TABLE users(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	username VARCHAR(50) NOT NULL UNIQUE,
-	password VARCHAR(50) NOT NULL,
-	email VARCHAR(50) NOT NULL UNIQUE,
+	password VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
 	firstname VARCHAR(50),
 	surname VARCHAR(50),
 	createat DATETIME DEFAULT CURRENT_TIMESTAMP,
 	updateat DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO users (username, password, email) VALUES
-('roberto','1234','roberto@email.com'),
-('user2','1234','user2@email.com');
+--
+-- Encryted password 1234 -> hash 
+--
+
+INSERT INTO users (username, password, email, firstname, surname) VALUES
+('roberto','$2y$12$uK6hAgnezcuKrvjOiEQM4ORV1F5CU7F4T5ORzgmScoYv0aj/um1Kq','roberto@email.com','Roberto','Garcia'),
+('user2','$2y$12$uK6hAgnezcuKrvjOiEQM4ORV1F5CU7F4T5ORzgmScoYv0aj/um1Kq','user2@email.com','User2','User2');
 
 
 CREATE TABLE tasks(
