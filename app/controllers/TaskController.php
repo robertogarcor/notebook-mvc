@@ -30,8 +30,10 @@ class TaskController extends Controller {
     public function index()
     {
         $this->getTaskUser(Auth::user()->id);
-        View::view('task', 'index-task', ['userObj' => Auth::user()]);
-        //View::make('task', 'index-task')->with('userObj', Auth::user())->execute();       
+        View::view('task', 'index-task', ['username' => Auth::user()->username, 'userObj' => Auth::user()]);
+//      View::make('task', 'index-task')->with('username', Auth::user()->username)
+//                                      ->with('userObj', Auth::user()) 
+//                                      ->execute();       
     }
     
     //GET   /model/create   create  ModelController@create

@@ -27,14 +27,19 @@ class Url {
     }
     
     
-    static function redirect($controller, $action) 
+    public function redirect($controller, $action) 
     {
         header('Location:http://localhost/notebook-mvc/index.php?controller='. $controller . '&action=' . $action);   
     }
-        
-}
-        
-        
     
-    
-
+    /**
+     * Template base (generic) to include in template html
+     * @param string $type is directory 
+     * @param string $basetemplate name base template -> not extension
+     */
+    public function basetemplate($type = null, $template = null)
+    {
+        return  './app/views/' . $type . '/'. $template . '.tpl.php';    
+    }
+        
+} 

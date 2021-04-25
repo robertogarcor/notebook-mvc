@@ -6,9 +6,15 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Sumary Tasks</title>
+        <title>Notebook | Sumary Tasks</title>
+        <!-- Bootstrap CSS -->
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Main CSS --> 
         <link href="<?php echo $url->assets('task','main-task-index.css');?>" rel="stylesheet" type="text/css" />   
+        <link href="<?php echo $url->assets('base','main-base-navbar.css');?>" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap Jquery | JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <?php
@@ -17,7 +23,7 @@
             }
         ?>
         <div class='sumary-tasks'>
-            <p><a href="<?php echo $url->uri('task','index'); ?>">Home</a> | Welcome! user <?php echo $userObj->username;?> | <a href="<?php echo $url->uri('auth','logout'); ?>"> Logout </a></p>
+            <?php require_once $url->basetemplate('base', 'base-navbar'); ?>
             <h1>Sumary Tasks</h1>
             <section>
                 <table class="table">

@@ -8,14 +8,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Form Delete Task</title>
+        <title>Notebook | Delete Task</title>
+        <!-- Bootstrap CSS -->
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Main CSS --> 
         <link href="<?php echo $url->assets('task','main-task-destroy.css');?>" rel="stylesheet" type="text/css" />    
+        <link href="<?php echo $url->assets('base','main-base-navbar.css');?>" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap Jquery | JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="task-form">
-            <p><a href="<?php echo $url->uri('task','index'); ?>">Home</a> | user <?php echo $username; ?> | <a href="<?php echo $url->uri('auth', 'logout'); ?>"> Logout </a></p>
-           
+            <?php require_once $url->basetemplate('base', 'base-navbar'); ?>           
             <h1>Delete Task</h1>
             <p>Sure you want to delete this task?</p>
             <form action="<?php echo $url->uri('task', 'destroy'); ?>" method="POST">
