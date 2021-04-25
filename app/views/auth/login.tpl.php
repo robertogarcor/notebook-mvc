@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Notebook | Login</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!--<link href="./app/public/assets/user/css/main-login.css" rel="stylesheet" type="text/css" />-->
         <link href="<?php echo $url->assets('auth','main-login.css');?>" rel="stylesheet" type="text/css" />

@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Form Register User</title>
+        <title>Notebook | Register User</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo $url->assets('auth', 'main-register.css'); ?>" rel="stylesheet" type="text/css"/>
     </head>
@@ -40,6 +40,7 @@
                     <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" required>
                 </div>
                 <input type="submit" name="user-register" value="Send" class="btn btn-primary">
+                <a href="<?php echo $url->uri('auth','login'); ?>" class="btn btn-info">Cancel</a>
             </form>
         </div> 
     </body>
